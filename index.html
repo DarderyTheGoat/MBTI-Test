@@ -43,6 +43,8 @@
             margin-top: 20px;
             border-top: 1px solid #ccc;
             padding-top: 10px;
+            display: flex;
+            flex-direction: column;
         }
         input{
             align-self: center;
@@ -248,6 +250,7 @@
                 var slider = document.createElement("div");
                 newDiv.appendChild(questionItself);
                 newDiv.appendChild(slider);
+                
                 slider.appendChild(input);
                 slider.appendChild(relate);
                 slider.appendChild(notrelate);
@@ -289,18 +292,155 @@
                 default:
                     break;
             }
+            var totalScoresArray = [niScore, neScore, siScore, seScore, teScore, tiScore, feScore, fiScore];
+            arrayN = ["ni", "ne", "si", "se", "te", "ti", "fe", "fi"];
+            function sort(array, arrayN) {
+                var unsorted = true;
+                while (unsorted) {
+                    unsorted = false;
+                    for (var i = 0; i < array.length - 1; i++) {
+                        if (array[i] < array[i + 1]) {
+                            // Swap scores
+                            var tempScore = array[i];
+                            array[i] = array[i + 1];
+                            array[i + 1] = tempScore;
+                            
+                            // Swap corresponding function names
+                            var tempName = arrayN[i];
+                            arrayN[i] = arrayN[i + 1];
+                            arrayN[i + 1] = tempName;
+                            
+                            unsorted = true;
+                        }
+                    }
+                }
+            }
 
+
+            sort(totalScoresArray, arrayN);
+            var domF = arrayN[0];
+            var auxf;
+            var ns = false;
+            var tf = false;
+            var mbti = "";
+            if(domF == "te"){
+                for (var i = 1; i < 8; i++){
+                    if(arrayN[i].includes("ni")){
+                        auxf = "ni";
+                        mbti = "ENTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("si")){
+                        auxf = "si";
+                        mbti = "ESTJ";
+                        break;
+                    }
+                }
+            }else if(domF == "fe"){
+                for (var i = 1; i < 8; i++){
+                    if(arrayN[i].includes("ni")){
+                        auxf = "ni";
+                        mbti = "ENFJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("si")){
+                        auxf = "si";
+                        mbti = "ESFJ";
+                        break;
+                    }
+                }
+            }else if(domF == "fi"){
+                for (var i = 1; i < 8; i++){
+                    if(arrayN[i].includes("ne")){
+                        auxf = "ne";
+                        mbti = "INFP";
+                        break;
+                    }
+                    if(arrayN[i].includes("se")){
+                        auxf = "se";
+                        mbti = "ISFP";
+                        break;
+                    }
+                }
+            }else if(domF == "ti"){
+                for (var i = 1; i < 8; i++){
+                    if(arrayN[i].includes("ne")){
+                        auxf = "ne";
+                        mbti = "INTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("se")){
+                        auxf = "se";
+                        mbti = "ISTP";
+                        break;
+                    }
+                }
+            }else if(domF == "ne"){
+                for (var i = 1; i < 8; i++){
+                    if(arrayN[i].includes("ti")){
+                        auxf = "ti";
+                        mbti = "ENTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("fi")){
+                        auxf = "fi";
+                        mbti = "ENFP";
+                        break;
+                    }
+                }
+            }else if(domF == "se"){
+                for (var i = 1; i < 8; i++){
+                    if(arrayN[i].includes("ti")){
+                        auxf = "ti";
+                        mbti = "ESTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("fi")){
+                        auxf = "fi";
+                        mbti = "ESFP";
+                        break;
+                    }
+                }
+            }else if(domF == "ni"){
+                for (var i = 1; i < 8; i++){
+                    if(arrayN[i].includes("te")){
+                        auxf = "te";
+                        mbti = "INTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("fe")){
+                        auxf = "fe";
+                        mbti = "INFJ";
+                        break;
+                    }
+                }
+            }else if(domF == "si"){
+                for (var i = 1; i < 8; i++){
+                    if(arrayN[i].includes("te")){
+                        auxf = "te";
+                        mbti = "ISTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("fe")){
+                        auxf = "fe";
+                        mbti = "ISFJ";
+                        break;
+                    }
+                }
+            }
+            
             // Update results display
             var resultsDiv = document.querySelector(".results");
             resultsDiv.innerHTML = `
-                <h2>Ni Score: ${niScore}</h2>
-                <h2>Ne Score: ${neScore}</h2>
-                <h2>Si Score: ${siScore}</h2>
-                <h2>Se Score: ${seScore}</h2>
-                <h2>Ti Score: ${tiScore}</h2>
-                <h2>Te Score: ${teScore}</h2>
-                <h2>Fi Score: ${fiScore}</h2>
-                <h2>Fe Score: ${feScore}</h2>
+                <h1>Your MBTI: ${mbti}</h1>
+                <h2>Ni Score: ${niScore}/1000</h2>
+                <h2>Ne Score: ${neScore}/1000</h2>
+                <h2>Si Score: ${siScore}/1000</h2>
+                <h2>Se Score: ${seScore}/1000</h2>
+                <h2>Ti Score: ${tiScore}/1000</h2>
+                <h2>Te Score: ${teScore}/1000</h2>
+                <h2>Fi Score: ${fiScore}/1000</h2>
+                <h2>Fe Score: ${feScore}/1000</h2>
             `;
         }
 
@@ -337,6 +477,7 @@
             previousButton.classList.toggle("hidden");
 
             document.body.classList.toggle("bodyback");
+            
         }
 
         // Add event listener to toggle results button
@@ -346,6 +487,7 @@
         // Functionality for Previous button (if needed)
         var previousButton = document.querySelector(".previous");
         previousButton.addEventListener("click", toggleResults);
+        
     </script>
 </body>
 </html>
