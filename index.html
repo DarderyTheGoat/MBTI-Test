@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI Quiz</title>
+    <style>
+        /* Optional: Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        .questions-container {
+            margin-bottom: 20px;
+            width: 100%;
+            height: fit-content;
+            background: linear-gradient(to bottom, black, rgb(99, 99, 89));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .questions-container div {
+            margin-bottom: 10px;
+        }
+        .results {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+        input{
+            align-self: center;
+        }
+        .hidden{
+            display: none;
+        }
+        .question-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border-width: 2px;
+            border-color: black;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: blanchedalmond;
+            width: 80%;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="results hidden">
+        <!-- Results will be displayed here -->
+    </div>
+    <div class="questions-container">
+        <!-- Questions will be dynamically added here -->
+    </div>
+    <button class="submit" style="background-color: blanchedalmond; border-radius: 10px;">
+        Submit
+    </button>
+    <button class="previous hidden" style="background-color: blanchedalmond; border-radius: 10px;">
+        Previous
+    </button>
+
+    <script>
+        // Arrays for each cognitive function
+        const Niq = [
+            "I often foresee future trends or outcomes based on patterns and insights.",
+            "I enjoy exploring deeper meanings and symbolic interpretations.",
+            "I find it easy to connect seemingly unrelated ideas or events.",
+            "I often have a clear vision of where things are headed in the long term.",
+            "I prefer focusing on the big picture rather than details.",
+            "I trust my gut feelings when making decisions.",
+            "I enjoy contemplating philosophical questions.",
+            "I find it challenging to explain my thought process to others.",
+            "I feel a sense of certainty about my intuitions and hunches.",
+            "I value insights and revelations that come to me unexpectedly."
+        ];
+
+        const Neq = [
+            "I thrive in brainstorming sessions with lots of ideas flying around.",
+            "I enjoy exploring multiple possibilities and alternatives.",
+            "I often make connections between seemingly unrelated concepts.",
+            "I find it stimulating to engage in debates and discussions.",
+            "I prefer exploring new ideas rather than settling on one.",
+            "I tend to jump from one idea to another quickly.",
+            "I enjoy experimenting with different approaches to problem-solving.",
+            "I find routine tasks boring and seek novelty and change.",
+            "I often see potential for improvement or innovation in various situations.",
+            "I am enthusiastic about exploring new opportunities and experiences."
+        ];
+
+        const Seq = [
+            "I am very aware of my surroundings and notice changes easily.",
+            "I enjoy hands-on activities and experiencing things firsthand.",
+            "I prefer practical, tangible solutions to problems.",
+            "I have a good memory for specific details and facts.",
+            "I am skilled at reacting quickly to unexpected events.",
+            "I enjoy sports or activities that require physical coordination.",
+            "I am observant and notice small details that others may miss.",
+            "I am often in tune with my physical senses (sight, sound, touch, etc.).",
+            "I enjoy exploring new places and trying new experiences.",
+            "I find joy in engaging with the present moment fully."
+        ];
+
+        const Siq = [
+            "I rely on past experiences to guide my present decisions.",
+            "I have a good memory for specific details and factual information.",
+            "I enjoy routines and find comfort in familiar habits.",
+            "I am cautious and prefer to stick with what has worked in the past.",
+            "I often compare current experiences with similar past experiences.",
+            "I pay attention to physical sensations and how things feel.",
+            "I prefer clear, step-by-step instructions when learning something new.",
+            "I value stability and consistency in my life.",
+            "I find comfort in traditions and rituals.",
+            "I often reminisce about past events or experiences."
+        ];
+
+        const Teq = [
+            "I enjoy organizing and structuring information or tasks efficiently.",
+            "I prefer making decisions based on logical analysis and evidence.",
+            "I excel at setting and achieving specific goals.",
+            "I am straightforward and direct in my communication style.",
+            "I prioritize efficiency and effectiveness in everything I do.",
+            "I am skilled at problem-solving using objective criteria.",
+            "I enjoy debating or arguing points based on factual information.",
+            "I find it easy to identify flaws or inconsistencies in arguments.",
+            "I value competence and productivity in myself and others.",
+            "I prefer to focus on practical, actionable solutions."
+        ];
+
+        const Tiq = [
+            "I enjoy analyzing systems and understanding how things work.",
+            "I prioritize logical consistency and coherence in my thoughts.",
+            "I often play devil's advocate to explore different sides of an issue.",
+            "I am good at categorizing information and creating mental models.",
+            "I prefer to understand the underlying principles of a problem.",
+            "I enjoy solving complex puzzles or theoretical problems.",
+            "I find joy in refining my ideas until they are logically sound.",
+            "I am critical of ideas that don't stand up to logical scrutiny.",
+            "I value intellectual rigor and clarity in discussions.",
+            "I enjoy debating abstract concepts or theories."
+        ];
+
+        const Feq = [
+            "I am sensitive to others' feelings and emotions.",
+            "I enjoy creating harmony and fostering positive relationships.",
+            "I often consider how my actions impact those around me.",
+            "I am good at empathizing with others' perspectives.",
+            "I prioritize maintaining social norms and etiquette.",
+            "I enjoy collaborating with others towards a common goal.",
+            "I find joy in helping others solve their problems.",
+            "I am skilled at reading non-verbal cues and body language.",
+            "I value consensus and strive for group harmony.",
+            "I find fulfillment in supporting and encouraging others."
+        ];
+
+        const Fiq = [
+            "I have strong personal values that guide my decisions and actions.",
+            "I prioritize authenticity and staying true to myself.",
+            "I am good at recognizing and understanding my own emotions.",
+            "I often take others' feelings and emotions into account.",
+            "I am deeply empathetic towards others' struggles.",
+            "I value integrity and honesty in myself and others.",
+            "I enjoy connecting with others on a deeper, emotional level.",
+            "I find it important to act in ways that align with my beliefs.",
+            "I prefer to make decisions based on what feels right for me.",
+            "I am protective of my personal boundaries and values."
+        ];
+
+        var niScore = 0;
+        var neScore = 0;
+        var siScore = 0;
+        var seScore = 0;
+        var tiScore = 0;
+        var teScore = 0;
+        var fiScore = 0;
+        var feScore = 0;
+
+        function questionDivs(questions, name) {
+            var ranNums = [];
+            var score = 0;
+
+            // Generate unique random numbers
+            for (var i = 0; i < 10; i++) {
+                var ranNum;
+                do {
+                    ranNum = Math.floor(Math.random() * 10);
+                } while (ranNums.includes(ranNum));
+                ranNums.push(ranNum);
+            }
+
+            // Create divs with questions and input sliders
+            for (var i = 0; i < 10; i++) {
+                var newDiv = document.createElement("div");
+                newDiv.classList.add("question-container");
+                var questionItself = document.createElement("h3");
+                questionItself.textContent = questions[ranNums[i]];
+                var input = document.createElement("input");
+                input.style.width = "80%";
+                input.style.justifySelf = "center";
+                input.type = "range";
+                input.min = "0";
+                input.max = "100";
+                input.value = "50";
+                input.classList.add(name);
+                input.addEventListener("input", function() {
+                    score = 0;
+                    var allInputs = document.querySelectorAll("." + name);
+                    allInputs.forEach(function(input) {
+                        score += parseInt(input.value);
+                    });
+                    updateScore(name, score);
+                });
+
+                score += parseInt(input.value); // Accumulate initial score
+                // Append elements to the container
+                newDiv.appendChild(questionItself);
+                newDiv.appendChild(input);
+                document.querySelector(".questions-container").appendChild(newDiv);
+            }
+
+            return score;
+        }
+
+        function updateScore(name, score) {
+            switch (name) {
+                case "ni":
+                    niScore = score;
+                    break;
+                case "ne":
+                    neScore = score;
+                    break;
+                case "si":
+                    siScore = score;
+                    break;
+                case "se":
+                    seScore = score;
+                    break;
+                case "ti":
+                    tiScore = score;
+                    break;
+                case "te":
+                    teScore = score;
+                    break;
+                case "fi":
+                    fiScore = score;
+                    break;
+                case "fe":
+                    feScore = score;
+                    break;
+                default:
+                    break;
+            }
+
+            // Update results display
+            var resultsDiv = document.querySelector(".results");
+            resultsDiv.innerHTML = `
+                <h2>Ni Score: ${niScore}</h2>
+                <h2>Ne Score: ${neScore}</h2>
+                <h2>Si Score: ${siScore}</h2>
+                <h2>Se Score: ${seScore}</h2>
+                <h2>Ti Score: ${tiScore}</h2>
+                <h2>Te Score: ${teScore}</h2>
+                <h2>Fi Score: ${fiScore}</h2>
+                <h2>Fe Score: ${feScore}</h2>
+            `;
+        }
+
+        // Call the function for each cognitive function and store scores
+        niScore = questionDivs(Niq, "ni");
+        neScore = questionDivs(Neq, "ne");
+        siScore = questionDivs(Siq, "si");
+        seScore = questionDivs(Seq, "se");
+        tiScore = questionDivs(Tiq, "ti");
+        teScore = questionDivs(Teq, "te");
+        fiScore = questionDivs(Fiq, "fi");
+        feScore = questionDivs(Feq, "fe");
+
+        // Initial results display
+        updateScore("ni", niScore);
+        updateScore("ne", neScore);
+        updateScore("si", siScore);
+        updateScore("se", seScore);
+        updateScore("ti", tiScore);
+        updateScore("te", teScore);
+        updateScore("fi", fiScore);
+        updateScore("fe", feScore);
+
+        function toggleResults() {
+            var resultsDiv = document.querySelector(".results");
+            var questionsContainer = document.querySelector(".questions-container");
+            resultsDiv.classList.toggle("hidden");
+            questionsContainer.classList.toggle("hidden");
+
+            var submitButton = document.querySelector(".submit");
+            var previousButton = document.querySelector(".previous");
+
+            submitButton.classList.toggle("hidden");
+            previousButton.classList.toggle("hidden");
+        }
+
+        // Add event listener to toggle results button
+        var toggleButton = document.querySelector(".submit");
+        toggleButton.addEventListener("click", toggleResults);
+
+        // Functionality for Previous button (if needed)
+        var previousButton = document.querySelector(".previous");
+        previousButton.addEventListener("click", function() {
+            var resultsDiv = document.querySelector(".results");
+            var questionsContainer = document.querySelector(".questions-container");
+            resultsDiv.classList.toggle("hidden");
+            questionsContainer.classList.toggle("hidden");
+
+            var submitButton = document.querySelector(".submit");
+            var previousButton = document.querySelector(".previous");
+
+            submitButton.classList.toggle("hidden");
+            previousButton.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>
