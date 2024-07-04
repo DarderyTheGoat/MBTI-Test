@@ -13,7 +13,9 @@
             flex-direction: column;
             align-items: center;
             
-            background: linear-gradient(to bottom, black, rgb(99, 99, 89));
+        }
+        h4{
+            font-size: 80%;
         }
         .questions-container {
             margin-bottom: 20px;
@@ -30,7 +32,7 @@
         button{
             height: 70px;
             margin-bottom: 20px;
-            font-size: 10px;
+            font-size: 20px;
         }
         .results {
             margin-top: 20px;
@@ -56,12 +58,15 @@
             margin: 10px;
             background-color: blanchedalmond;
         }
-        .background{
-            background-color: blanchedalmond;
+        .bodyback{
+            background: linear-gradient(to bottom, rgb(43, 41, 41), rgb(77, 77, 65));
+        }
+        h3{
+            width: 80%;
         }
     </style>
 </head>
-<body class = "background">
+<body class = "bodyback">
     <div class="results hidden">
         <!-- Results will be displayed here -->
     </div>
@@ -209,14 +214,22 @@
                 newDiv.classList.add("question-container");
                 var questionItself = document.createElement("h3");
                 questionItself.textContent = questions[ranNums[i]];
+                questionItself.style.alignSelf = "center";
                 var input = document.createElement("input");
-                input.style.width = "80%";
-                input.style.justifySelf = "center";
+                input.style.width = "100%";
+                input.style.alignSelf = "center";
+                input.style.textAlign = "center";
                 input.type = "range";
                 input.min = "0";
                 input.max = "100";
                 input.value = "50";
                 input.classList.add(name);
+                var relate = document.createElement("h4");
+                relate.innerText = "Very Relatable";
+                relate.style.order = "3";
+                var notrelate = document.createElement("h4");
+                notrelate.innerText = "Not at All Relatable";
+                notrelate.style.order = "1";
                 input.addEventListener("input", function() {
                     score = 0;
                     var allInputs = document.querySelectorAll("." + name);
@@ -225,12 +238,20 @@
                     });
                     updateScore(name, score);
                 });
+                input.style.order = "2";
 
                 score += parseInt(input.value); // Accumulate initial score
                 // Append elements to the container
+                var slider = document.createElement("div");
                 newDiv.appendChild(questionItself);
-                newDiv.appendChild(input);
+                newDiv.appendChild(slider);
+                slider.appendChild(input);
+                slider.appendChild(relate);
+                slider.appendChild(notrelate);
                 document.querySelector(".questions-container").appendChild(newDiv);
+                slider.style.width = "95%";
+                slider.style.display = "flex";
+                slider.style.justifyContent = "space-between";
             }
 
             return score;
@@ -311,6 +332,8 @@
 
             submitButton.classList.toggle("hidden");
             previousButton.classList.toggle("hidden");
+
+            document.body.classList.toggle("bodyback");
         }
 
         // Add event listener to toggle results button
@@ -319,20 +342,7 @@
 
         // Functionality for Previous button (if needed)
         var previousButton = document.querySelector(".previous");
-        previousButton.addEventListener("click", function() {
-            var resultsDiv = document.querySelector(".results");
-            var questionsContainer = document.querySelector(".questions-container");
-            resultsDiv.classList.toggle("hidden");
-            questionsContainer.classList.toggle("hidden");
-
-            var submitButton = document.querySelector(".submit");
-            var previousButton = document.querySelector(".previous");
-
-            submitButton.classList.toggle("hidden");
-            previousButton.classList.toggle("hidden");
-
-            document.body.classList.toggle("background");
-        });
+        previousButton.addEventListener("click", toggleResults);
     </script>
 </body>
 </html>
