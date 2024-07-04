@@ -104,107 +104,106 @@
     <script>
         // Arrays for each cognitive function
         const Niq = [
-            "I often foresee future trends or outcomes based on patterns and insights.",
-            "I enjoy exploring deeper meanings and symbolic interpretations.",
-            "I find it easy to connect seemingly unrelated ideas or events.",
-            "I often have a clear vision of where things are headed in the long term.",
-            "I prefer focusing on the big picture rather than details.",
-            "I trust my gut feelings when making decisions.",
-            "I enjoy contemplating philosophical questions.",
-            "I find it challenging to explain my thought process to others.",
-            "I feel a sense of certainty about my intuitions and hunches.",
-            "I value insights and revelations that come to me unexpectedly."
+          "I frequently think about the future and long-term possibilities.",
+          "I have sudden insights or 'aha' moments.",
+          "I prefer to work through ideas and plans internally before discussing them.",
+          "I feel a strong sense of purpose and direction in life.",
+          "I enjoy abstract concepts and theoretical discussions.",
+          "I often sense patterns and underlying meanings in various situations.",
+          "I experience vivid daydreams and visualizations.",
+          "I trust my gut feelings and hunches.",
+          "I am motivated by my personal visions and aspirations.",
+          "I find joy in solving complex problems and puzzles."
         ];
 
         const Neq = [
-            "I thrive in brainstorming sessions with lots of ideas flying around.",
-            "I enjoy exploring multiple possibilities and alternatives.",
-            "I often make connections between seemingly unrelated concepts.",
-            "I find it stimulating to engage in debates and discussions.",
-            "I prefer exploring new ideas rather than settling on one.",
-            "I tend to jump from one idea to another quickly.",
-            "I enjoy experimenting with different approaches to problem-solving.",
-            "I find routine tasks boring and seek novelty and change.",
-            "I often see potential for improvement or innovation in various situations.",
-            "I am enthusiastic about exploring new opportunities and experiences."
+          "I am constantly generating new ideas and possibilities.",
+          "I enjoy brainstorming and exploring multiple options.",
+          "I often see connections and relationships between seemingly unrelated things.",
+          "I love engaging in spontaneous and open-ended discussions.",
+          "I am energized by novelty and change.",
+          "I frequently come up with creative solutions to problems.",
+          "I get excited about starting new projects and ventures.",
+          "I enjoy imagining different scenarios and outcomes.",
+          "I am curious and eager to learn about a wide variety of topics.",
+          "I thrive in environments that encourage innovation and exploration."
         ];
 
         const Seq = [
-            "I am very aware of my surroundings and notice changes easily.",
-            "I enjoy hands-on activities and experiencing things firsthand.",
-            "I prefer practical, tangible solutions to problems.",
-            "I have a good memory for specific details and facts.",
-            "I am skilled at reacting quickly to unexpected events.",
-            "I enjoy sports or activities that require physical coordination.",
-            "I am observant and notice small details that others may miss.",
-            "I am often in tune with my physical senses (sight, sound, touch, etc.).",
-            "I enjoy exploring new places and trying new experiences.",
-            "I find joy in engaging with the present moment fully."
+          "I am highly aware of my surroundings and notice details easily.",
+          "I enjoy engaging in physical activities and experiences.",
+          "I thrive on being in the moment and acting spontaneously.",
+          "I am energized by sensory experiences and stimulation.",
+          "I often seek out new and exciting experiences.",
+          "I have a keen sense of aesthetics and appreciate beauty in the world around me.",
+          "I am quick to respond to changes in my environment.",
+          "I enjoy taking risks and embracing challenges.",
+          "I prefer hands-on learning and doing things practically.",
+          "I am drawn to activities that involve action and movement."
         ];
 
         const Siq = [
-            "I rely on past experiences to guide my present decisions.",
-            "I have a good memory for specific details and factual information.",
-            "I enjoy routines and find comfort in familiar habits.",
-            "I am cautious and prefer to stick with what has worked in the past.",
-            "I often compare current experiences with similar past experiences.",
-            "I pay attention to physical sensations and how things feel.",
-            "I prefer clear, step-by-step instructions when learning something new.",
-            "I value stability and consistency in my life.",
-            "I find comfort in traditions and rituals.",
-            "I often reminisce about past events or experiences."
+          "I have a strong memory for details and past experiences.",
+          "I find comfort in routines and familiar patterns.",
+          "I pay close attention to practical details and specifics.",
+          "I value stability and reliability in my life.",
+          "I enjoy organizing and categorizing information.",
+          "I am good at recalling facts and specific information.",
+          "I notice when things are out of place or not as they should be.",
+          "I prefer tried-and-true methods and traditions.",
+          "I am conscientious and meticulous in my work.",
+          "I have a deep appreciation for nostalgia and sentimental items."
         ];
 
         const Teq = [
-            "I enjoy organizing and structuring information or tasks efficiently.",
-            "I prefer making decisions based on logical analysis and evidence.",
-            "I excel at setting and achieving specific goals.",
-            "I am straightforward and direct in my communication style.",
-            "I prioritize efficiency and effectiveness in everything I do.",
-            "I am skilled at problem-solving using objective criteria.",
-            "I enjoy debating or arguing points based on factual information.",
-            "I find it easy to identify flaws or inconsistencies in arguments.",
-            "I value competence and productivity in myself and others.",
-            "I prefer to focus on practical, actionable solutions."
+          "I enjoy analyzing and understanding how things work.",
+          "I value logical consistency and coherence in ideas.",
+          "I prefer to solve problems independently and methodically.",
+          "I strive for precision and accuracy in my reasoning.",
+          "I am skilled at identifying flaws or inconsistencies in arguments.",
+          "I enjoy exploring theoretical frameworks and models.",
+          "I am cautious about making decisions until I have thoroughly analyzed the situation.",
+          "I am fascinated by abstract concepts and theories.",
+          "I prioritize understanding concepts deeply over memorizing facts.",
+          "I am driven to create logical systems and structures."
         ];
-
         const Tiq = [
-            "I enjoy analyzing systems and understanding how things work.",
-            "I prioritize logical consistency and coherence in my thoughts.",
-            "I often play devil's advocate to explore different sides of an issue.",
-            "I am good at categorizing information and creating mental models.",
-            "I prefer to understand the underlying principles of a problem.",
-            "I enjoy solving complex puzzles or theoretical problems.",
-            "I find joy in refining my ideas until they are logically sound.",
-            "I am critical of ideas that don't stand up to logical scrutiny.",
-            "I value intellectual rigor and clarity in discussions.",
-            "I enjoy debating abstract concepts or theories."
+          "I enjoy analyzing and understanding how things work.",
+          "I value logical consistency and coherence in ideas.",
+          "I prefer to solve problems independently and methodically.",
+          "I strive for precision and accuracy in my reasoning.",
+          "I am skilled at identifying flaws or inconsistencies in arguments.",
+          "I enjoy exploring theoretical frameworks and models.",
+          "I am cautious about making decisions until I have thoroughly analyzed the situation.",
+          "I am fascinated by abstract concepts and theories.",
+          "I prioritize understanding concepts deeply over memorizing facts.",
+          "I am driven to create logical systems and structures."
         ];
 
         const Feq = [
-            "I am sensitive to others' feelings and emotions.",
-            "I enjoy creating harmony and fostering positive relationships.",
-            "I often consider how my actions impact those around me.",
-            "I am good at empathizing with others' perspectives.",
-            "I prioritize maintaining social norms and etiquette.",
-            "I enjoy collaborating with others towards a common goal.",
-            "I find joy in helping others solve their problems.",
-            "I am skilled at reading non-verbal cues and body language.",
-            "I value consensus and strive for group harmony.",
-            "I find fulfillment in supporting and encouraging others."
+          "I am sensitive to the emotions and feelings of others.",
+          "I enjoy creating harmony and fostering positive relationships.",
+          "I often prioritize the needs and feelings of others over my own.",
+          "I am skilled at empathizing with people and understanding their perspectives.",
+          "I value cooperation and teamwork in achieving goals.",
+          "I strive to create a supportive and inclusive environment.",
+          "I enjoy socializing and connecting with others.",
+          "I am good at mediating conflicts and finding common ground.",
+          "I am motivated by making a positive impact on others' lives.",
+          "I find fulfillment in helping and supporting others."
         ];
 
         const Fiq = [
-            "I have strong personal values that guide my decisions and actions.",
-            "I prioritize authenticity and staying true to myself.",
-            "I am good at recognizing and understanding my own emotions.",
-            "I often take others' feelings and emotions into account.",
-            "I am deeply empathetic towards others' struggles.",
-            "I value integrity and honesty in myself and others.",
-            "I enjoy connecting with others on a deeper, emotional level.",
-            "I find it important to act in ways that align with my beliefs.",
-            "I prefer to make decisions based on what feels right for me.",
-            "I am protective of my personal boundaries and values."
+          "I have strong personal values that guide my decisions and actions.",
+          "I deeply care about authenticity and staying true to myself.",
+          "I am empathetic and attuned to my own emotions and the emotions of others.",
+          "I prioritize understanding my own feelings and motivations.",
+          "I enjoy expressing myself creatively and authentically.",
+          "I value close, meaningful relationships based on mutual understanding.",
+          "I am sensitive to injustice and unfair treatment.",
+          "I seek inner harmony and strive for personal growth.",
+          "I am compassionate and caring towards others.",
+          "I find fulfillment in living in alignment with my values."
         ];
 
         var niScore = 0;
