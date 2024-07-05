@@ -84,6 +84,7 @@
             display: grid;
             grid-template-columns: 6fr 1fr;
             grid-template-rows: 20px 30px 20px;
+
         }
         .reminder-text{
             color: rgb(123, 5, 5);
@@ -97,6 +98,26 @@
         }
         .closed{
             display: none;
+        }
+        @media (max-width: 550px) {
+            .reminder{
+                grid-template-rows: 35px 30px 35px;
+            }
+        }
+        @media (max-width: 457px) {
+            .reminder{
+                grid-template-rows: 40px 30px 40px;
+            }
+        }
+        @media (max-width: 369px) {
+            .reminder{
+                grid-template-rows: 50px 30px 50px;
+            }
+        }
+        @media (max-width: 324px) {
+            .reminder{
+                grid-template-rows: 59px 30px 59px;
+            }
         }
     </style>
 </head>
@@ -745,3 +766,4 @@
     </script>
 </body>
 </html>
+            
