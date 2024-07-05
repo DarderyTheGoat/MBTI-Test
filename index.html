@@ -45,6 +45,7 @@
             padding-top: 10px;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         input{
             align-self: center;
@@ -121,9 +122,9 @@
           "I enjoy brainstorming and exploring multiple options.",
           "I often see connections and relationships between seemingly unrelated things.",
           "I love engaging in spontaneous and open-ended discussions.",
-          "I hyperfocused when i am inspired.",
+          "I am hyperfocused when i am inspired.",
           "I have difficulty with commitment.",
-          "I gam almost never bored.",
+          "I am almost never bored.",
           "I enjoy imagining different scenarios and outcomes.",
           "I am curious and eager to learn about a wide variety of topics.",
           "I have many casual hobbies, they drop and pick up at will."
@@ -158,10 +159,10 @@
         const Teq = [
           "I am a rule-follower",
           "I value logical consistency and coherence in ideas.",
-          "I prefer to solve problems independently and methodically.",
+          "I am skilled at judging things objectively and logically.",
           "I strive for precision and accuracy in my reasoning.",
-          "I am objective with defined goals.",
-          "I judgemental to illogical decisions.",
+          "I am am often labled as 'bossy'.",
+          "I am judgemental to illogical decisions.",
           "I am really cautious.",
           "I value effectiveness and practicality",
           "I appreciate structure and routine.",
@@ -336,6 +337,12 @@
             var ns = false;
             var tf = false;
             var mbti = "";
+            var mbti2 = "";
+            var mbti3 = "";
+            var domF2 = arrayN[1];
+            var auxf3;
+            var domF3 = arrayN[2];
+            var auxf3;
             if(domF == "te"){
                 for (var i = 1; i < 8; i++){
                     if(arrayN[i].includes("ni")){
@@ -441,19 +448,234 @@
                     }
                 }
             }
+            /* second */
+            if(domF2 == "te"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ni")){
+                        auxf2 = "ni";
+                        mbti2 = "ENTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("si")){
+                        auxf2 = "si";
+                        mbti2 = "ESTJ";
+                        break;
+                    }
+                }
+            }else if(domF2 == "fe"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ni")){
+                        auxf2 = "ni";
+                        mbti2 = "ENFJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("si")){
+                        auxf2 = "si";
+                        mbti2 = "ESFJ";
+                        break;
+                    }
+                }
+            }else if(domF2 == "fi"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ne")){
+                        auxf2 = "ne";
+                        mbti2 = "INFP";
+                        break;
+                    }
+                    if(arrayN[i].includes("se")){
+                        auxf2 = "se";
+                        mbti2 = "ISFP";
+                        break;
+                    }
+                }
+            }else if(domF2 == "ti"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ne")){
+                        auxf2 = "ne";
+                        mbti2 = "INTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("se")){
+                        auxf2 = "se";
+                        mbti2 = "ISTP";
+                        break;
+                    }
+                }
+            }else if(domF2 == "ne"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ti")){
+                        auxf2 = "ti";
+                        mbti2 = "ENTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("fi")){
+                        auxf2 = "fi";
+                        mbti2 = "ENFP";
+                        break;
+                    }
+                }
+            }else if(domF2 == "se"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ti")){
+                        auxf2 = "ti";
+                        mbti2 = "ESTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("fi")){
+                        auxf2 = "fi";
+                        mbti2 = "ESFP";
+                        break;
+                    }
+                }
+            }else if(domF2 == "ni"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("te")){
+                        auxf2 = "te";
+                        mbti2 = "INTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("fe")){
+                        auxf2 = "fe";
+                        mbti2 = "INFJ";
+                        break;
+                    }
+                }
+            }else if(domF == "si"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("te")){
+                        auxf2 = "te";
+                        mbti2 = "ISTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("fe")){
+                        auxf2 = "fe";
+                        mbti2 = "ISFJ";
+                        break;
+                    }
+                }
+            }
+            /* third */
+            if(domF3 == "te"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ni")){
+                        auxf3 = "ni";
+                        mbti3 = "ENTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("si")){
+                        auxf3 = "si";
+                        mbti3 = "ESTJ";
+                        break;
+                    }
+                }
+            }else if(domF3 == "fe"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ni")){
+                        auxf3 = "ni";
+                        mbti3 = "ENFJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("si")){
+                        auxf3 = "si";
+                        mbti3 = "ESFJ";
+                        break;
+                    }
+                }
+            }else if(domF3 == "fi"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ne")){
+                        auxf3 = "ne";
+                        mbti3 = "INFP";
+                        break;
+                    }
+                    if(arrayN[i].includes("se")){
+                        auxf3 = "se";
+                        mbti3 = "ISFP";
+                        break;
+                    }
+                }
+            }else if(domF3 == "ti"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ne")){
+                        auxf3 = "ne";
+                        mbti3 = "INTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("se")){
+                        auxf3 = "se";
+                        mbti3 = "ISTP";
+                        break;
+                    }
+                }
+            }else if(domF3 == "ne"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ti")){
+                        auxf3 = "ti";
+                        mbti3 = "ENTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("fi")){
+                        auxf3 = "fi";
+                        mbti3 = "ENFP";
+                        break;
+                    }
+                }
+            }else if(domF3 == "se"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("ti")){
+                        auxf3 = "ti";
+                        mbti3 = "ESTP";
+                        break;
+                    }
+                    if(arrayN[i].includes("fi")){
+                        auxf3 = "fi";
+                        mbti3 = "ESFP";
+                        break;
+                    }
+                }
+            }else if(domF3 == "ni"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("te")){
+                        auxf3 = "te";
+                        mbti3 = "INTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("fe")){
+                        auxf3 = "fe";
+                        mbti3 = "INFJ";
+                        break;
+                    }
+                }
+            }else if(domF3 == "si"){
+                for (var i = 0; i < 8; i++){
+                    if(arrayN[i].includes("te")){
+                        auxf3 = "te";
+                        mbti3 = "ISTJ";
+                        break;
+                    }
+                    if(arrayN[i].includes("fe")){
+                        auxf3 = "fe";
+                        mbti3 = "ISFJ";
+                        break;
+                    }
+                }
+            }
             
             // Update results display
             var resultsDiv = document.querySelector(".results");
             resultsDiv.innerHTML = `
-                <h1>Your MBTI: ${mbti}</h1>
-                <h2>Ni Score: ${niScore}/1000</h2>
-                <h2>Ne Score: ${neScore}/1000</h2>
-                <h2>Si Score: ${siScore}/1000</h2>
-                <h2>Se Score: ${seScore}/1000</h2>
-                <h2>Ti Score: ${tiScore}/1000</h2>
-                <h2>Te Score: ${teScore}/1000</h2>
-                <h2>Fi Score: ${fiScore}/1000</h2>
-                <h2>Fe Score: ${feScore}/1000</h2>
+                <h1>Your top 3 MBTI:</h1>
+                <h2>1.  ${mbti}</h2>
+                <h2>2.  ${mbti2}</h2>
+                <h2>3.  ${mbti3}</h2>
+                <h3>Ni Score: ${niScore}/1000</h3>
+                <h3>Ne Score: ${neScore}/1000</h3>
+                <h3>Si Score: ${siScore}/1000</h3>
+                <h3>Se Score: ${seScore}/1000</h3>
+                <h3>Ti Score: ${tiScore}/1000</h3>
+                <h3>Te Score: ${teScore}/1000</h3>
+                <h3>Fi Score: ${fiScore}/1000</h3>
+                <h3>Fe Score: ${feScore}/1000</h3>
             `;
         }
 
@@ -504,3 +726,4 @@
     </script>
 </body>
 </html>
+            
