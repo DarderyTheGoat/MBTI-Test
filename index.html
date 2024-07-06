@@ -7,9 +7,18 @@
     <title>MBTI Quiz</title>
     <style>
         /* Optional: Add some basic styling */
+        body *:not(.results):not(.results *):not(.reminder):not(.reminder *):not(.submit):not(.submit *):not(.previous):not(.previous *){
+            color: #EEEEEE;
+        }
         *{
             font-family: sans-serif;
         }
+        .scores{
+            background-color: cadetblue;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -40,12 +49,16 @@
             font-size: 20px;
         }
         .results {
-            margin-top: 20px;
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 40px;
+            background-color: #A91D3A;
+            color: #EEEEEE;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin: 10px;
         }
         input{
             align-self: center;
@@ -64,10 +77,10 @@
             border-radius: 10px;
             width: 80%;
             margin: 10px;
-            background-color: blanchedalmond;
+            background-color: #A91D3A;
         }
         .bodyback{
-            background-color: #333333;
+            background-color: #151515;
         }
         h3{
             width: 80%;
@@ -101,23 +114,86 @@
         }
         @media (max-width: 550px) {
             .reminder{
-                grid-template-rows: 35px 30px 37px;
+                grid-template-rows: 35px 30px 35px;
             }
         }
         @media (max-width: 457px) {
             .reminder{
-                grid-template-rows: 40px 30px 44px;
+                grid-template-rows: 40px 30px 40px;
             }
         }
         @media (max-width: 369px) {
             .reminder{
-                grid-template-rows: 50px 30px 53px;
+                grid-template-rows: 50px 30px 50px;
             }
         }
         @media (max-width: 324px) {
             .reminder{
-                grid-template-rows: 59px 30px 65px;
+                grid-template-rows: 59px 30px 59px;
             }
+        }
+        input[type="range"]{
+            -webkit-appearance: none;
+            width: 100%;
+            height: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+            color: #151515;
+
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 15px;
+            width: 15px;
+            background: #151515;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #04AA6D;
+            cursor: pointer;
+        }
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+        .page-navigation{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .page-numbers{
+            padding: 10px;
+            border-radius: 10px;
+            height: fit-content;
+            margin-bottom: 20px;
+            font-size: 20px;
+            background-color: #04AA6D;
+        }
+        .submit{
+            background-color: #C73659;
+            padding: 10px;
+            height: fit-content;
+        }
+        .resultsback{
+            background-color: #C73659;
+        }
+        .previous{
+            background-color: #A91D3A;
+            padding: 10px;
+            height: fit-content;
+        }
+        .submit:hover{
+            opacity: 0.4;
+        }
+        .previous:hover{
+            opacity: 0.4;
         }
     </style>
 </head>
@@ -129,11 +205,11 @@
     <div class="questions-container">
         <!-- Questions will be dynamically added here -->
     </div>
-    <button class="submit" style="background-color: blanchedalmond; border-radius: 10px;">
+    <button class="submit" style="border-radius: 10px;">
         Submit
     </button>
-    <button class="previous hidden" style="background-color: blanchedalmond; border-radius: 10px;">
-        Previous
+    <button class="previous hidden" style="border-radius: 10px;">
+        Back to qustions
     </button>
 
     <script>
@@ -699,18 +775,22 @@
             // Update results display
             var resultsDiv = document.querySelector(".results");
             resultsDiv.innerHTML = `
+                <div>
                 <h1>Your top 3 MBTI:</h1>
                 <h2>1.  ${mbti1}</h2>
                 <h2>2.  ${mbti2}</h2>
                 <h2>3.  ${mbti3}</h2>
-                <h4>Ni Score: ${niScore}/1000</h4>
-                <h4>Ne Score: ${neScore}/1000</h4>
-                <h4>Si Score: ${siScore}/1000</h4>
-                <h4>Se Score: ${seScore}/1000</h4>
-                <h4>Ti Score: ${tiScore}/1000</h4>
-                <h4>Te Score: ${teScore}/1000</h4>
-                <h4>Fi Score: ${fiScore}/1000</h4>
-                <h4>Fe Score: ${feScore}/1000</h4>
+                </div>
+                <div>
+                <h4>Ni Score: ${niScore/10}%</h4>
+                <h4>Ne Score: ${neScore/10}%</h4>
+                <h4>Si Score: ${siScore/10}%</h4>
+                <h4>Se Score: ${seScore/10}%</h4>
+                <h4>Ti Score: ${tiScore/10}%</h4>
+                <h4>Te Score: ${teScore/10}%</h4>
+                <h4>Fi Score: ${fiScore/10}%</h4>
+                <h4>Fe Score: ${feScore/10}%</h4>
+                </div>
             `;
         }
 
@@ -746,7 +826,7 @@
             submitButton.classList.toggle("hidden");
             previousButton.classList.toggle("hidden");
 
-            document.body.classList.toggle("bodyback");
+
             
         }
         function closeReminder(){
