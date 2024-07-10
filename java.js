@@ -995,3 +995,11 @@ document.querySelector(".backToQuestions").addEventListener("click", function(){
     })
     document.querySelector(".results").classList.remove("show-results");
 })
+document.querySelectorAll("button").forEach(button =>
+    button.addEventListener("click", function(){
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    })
+)
