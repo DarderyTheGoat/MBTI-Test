@@ -129,6 +129,7 @@ for(var i = 0; i < 8; i++){
     page.classList.add("hidden");
     page.classList.add("page" + (i + 1));
     document.querySelector(".pages").appendChild(page);
+    page.innerHTML = "page" + (i + 1);
     for(var j = 0; j < 10; j++){
         var qnadiv = document.createElement("div");
         qnadiv.classList.add("qna");
