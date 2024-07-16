@@ -535,24 +535,27 @@ function updateScores(){
         }
     }
 
+    
+
     var resultsDiv = document.querySelector(".results");
     resultsDiv.innerHTML = `
-        <div>
+        <div class="top3">
         <h1>Your top 3 MBTI:</h1>
         <h2>1.  ${mbti1}</h2>
         <h2>2.  ${mbti2}</h2>
         <h2>3.  ${mbti3}</h2>
         </div>
-        <div>
-        <h4>Ni Score: ${niScore/10}%</h4>
-        <h4>Ne Score: ${neScore/10}%</h4>
-        <h4>Si Score: ${siScore/10}%</h4>
-        <h4>Se Score: ${seScore/10}%</h4>
-        <h4>Ti Score: ${tiScore/10}%</h4>
-        <h4>Te Score: ${teScore/10}%</h4>
-        <h4>Fi Score: ${fiScore/10}%</h4>
-        <h4>Fe Score: ${feScore/10}%</h4>
+        <div class="top3f">
+        <h4>${domF1} Score: ${totalScoresArray[0]/10}%</h4>
+        <h4>${domF2} Score: ${totalScoresArray[1]/10}%</h4>
+        
         </div>
+        <h4 class="thirdF">${domF3} Score: ${totalScoresArray[2]/10}%</h4>
+        <h4 class="fourthF">${arrayN[3]} Score: ${totalScoresArray[3]/10}%</h4>
+        <h4 class="fifthF">${arrayN[4]} Score: ${totalScoresArray[4]/10}%</h4>
+        <h4 class="sixthF">${arrayN[5]} Score: ${totalScoresArray[5]/10}%</h4>
+        <h4 class="seventhF" >${arrayN[6]} Score: ${totalScoresArray[6]/10}%</h4>
+        <h4 class="eightthF">${arrayN[7]} Score: ${totalScoresArray[7]/10}%</h4>
     `;
 }
 
