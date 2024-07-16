@@ -121,3 +121,20 @@ button:hover{
 h4{
     font-size: 130%;
 }
+.title{
+    position: fixed;
+    height: fit-content;
+    top: 0;
+    background-color: #d3d3d3;
+    width: 100%;
+    padding: 10px;
+    font-size: 70%;
+    border-bottom: 3px solid #C73659;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.credit{
+    align-self: flex-end;
+}
