@@ -12,7 +12,7 @@ const Niq = [
     "I focus on the bigger picture rather than details.",
     "I am future-oriented.",
     "I am strategic in planning to reach goals.",
-    "I'go with the flow.",
+    "I 'go with the flow'.",
     "I enjoy abstract concepts and theoretical discussions.",
     "I often fail to explain my thought process.",
     "I think in images/impressions rather than words/sentences.",
