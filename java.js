@@ -99,7 +99,7 @@ const Feq = [
 ];
 
 const Fiq = [
-    "I value genuinity and sincerity",
+    "I value genuinity and sincerity.",
     "I deeply care about authenticity and staying true to myself.",
     "I can feel others' pain as if it was my own.",
     "I prioritize understanding my own feelings and motivations.",
