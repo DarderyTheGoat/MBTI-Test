@@ -9,23 +9,23 @@ pageNumCont.innerHTML = "page " + pageNum + "/8";
 
 
 const Niq = [
-    "I focus on the bigger picture rather than details",
-    "I am future-oriented",
-    "I am strategic in planning to reach goals",
-    "I have accurate foresight",
+    "I focus on the bigger picture rather than details.",
+    "I am future-oriented.",
+    "I am strategic in planning to reach goals.",
+    "I'go with the flow.",
     "I enjoy abstract concepts and theoretical discussions.",
-    "I often sense patterns and underlying meanings in various situations.",
-    "I think in images/impressions rather than words/sentences",
-    "I trust my gut feelings and hunches.",
+    "I often fail to explain my thought process.",
+    "I think in images/impressions rather than words/sentences.",
+    "I rely on my instincts.",
     "I have sudden realizations.",
     "I use metaphors a lot."
 ];
 
 const Neq = [
-    "I am creative",
+    "I am creative.",
     "I enjoy brainstorming and exploring multiple options.",
     "I often see connections and relationships between seemingly unrelated things.",
-    "I love engaging in spontaneous and open-ended discussions.",
+    "I am great at communicating.",
     "I am hyperfocused when i am inspired.",
     "I have difficulty with commitment.",
     "I am almost never bored.",
@@ -44,7 +44,7 @@ const Seq = [
     "I am quick to respond to changes in my environment.",
     "I enjoy activities over talking when hanging out",
     "I prefer hands-on learning and doing things practically.",
-    "I learn quickly from experience"
+    "I have a great connection with my five senses."
 ];
 
 const Siq = [
@@ -54,7 +54,7 @@ const Siq = [
     "I value stability and reliability in my life.",
     "I enjoy organizing and categorizing information.",
     "I am good at recalling facts and specific information.",
-    "I am good at following procedures.",
+    "I relate past experiences to present circumstances.",
     "I prefer tried-and-true methods and traditions.",
     "I focus on details rather than the big picture.",
     "I am aware of internal bodily sensations."
@@ -64,22 +64,22 @@ const Teq = [
     "I am a rule-follower",
     "I value logical consistency and coherence in ideas.",
     "I am skilled at judging things objectively and logically.",
-    "I strive for precision and accuracy in my reasoning.",
-    "I am am often labled as 'bossy'.",
+    "I set emotions aside and make judgements based on what seems rational and reasonable.",
+    "I am often labled as 'bossy'.",
     "I am judgemental to illogical decisions.",
     "I am really cautious.",
-    "I value effectiveness and practicality",
-    "I appreciate structure and routine.",
+    "I value effectiveness and practicality.",
+    "I am persuasive and charismatic.",
     "I see the world in black-and-white."
 ];
 const Tiq = [
-    "I enjoy things that are STEM",
-    "I am prone to nihilism.",
+    "i have internal belief systems built on past discoveries and insights.",
+    "I am deeply analytical and logical.",
     "I prefer to solve problems independently and methodically.",
-    "I strive for precision and accuracy in my reasoning.",
-    "I am skilled at identifying flaws or inconsistencies in arguments.",
-    "I value meaning and purpose",
-    "My mind is more organized than my surroundings",
+    "I expect reality to conform to my already existing ideas.",
+    "I gradually adjust my thinking if they come in constant conflict with reality.",
+    "I value meaning and purpose.",
+    "My mind is more organized than my surroundings.",
     "I sometimes play devil's advocate.",
     "I give practical solutions to emotional problems.",
     "I am driven to create logical systems and structures."
@@ -87,10 +87,10 @@ const Tiq = [
 
 const Feq = [
     "I am sensitive to the emotions and feelings of others.",
-    "I enjoy creating harmony and fostering positive relationships.",
+    "I base my decisions on my values which are determined through interacting with people or the assessment of others' needs.",
     "I often prioritize the needs and feelings of others over my own.",
     "I am skilled at empathizing with people and understanding their perspectives.",
-    "I value cooperation and teamwork in achieving goals.",
+    "My values are heavily influenced by cultural values and societal norms.",
     "I symphasize easily with others.",
     "I enjoy socializing and connecting with others.",
     "I am good at mediating conflicts and finding common ground.",
@@ -101,14 +101,14 @@ const Feq = [
 const Fiq = [
     "I value genuinity and sincerity",
     "I deeply care about authenticity and staying true to myself.",
-    "I crave freedom.",
+    "I can feel others' pain as if it was my own.",
     "I prioritize understanding my own feelings and motivations.",
-    "I only expressing myself creatively and authentically alone.",
+    "I am deeply empathetic.",
     "I value close, meaningful relationships based on mutual understanding.",
-    "I am sensitive to injustice and unfair treatment.",
+    "I adopt my ethics based on my assessment rather than the opinion of others'.",
     "I seek inner harmony and strive for personal growth.",
     "I hate critiquing others.",
-    "I am prone to feeling guilty and shameful."
+    "I do what I feel is right regardless of what society tells me."
 ];
 var niScore = 0;
 var neScore = 0;
