@@ -7,6 +7,7 @@ var pageNumCont = document.querySelector(".numbers");
 var pageNum = 1;
 pageNumCont.innerHTML = "page " + pageNum + "/8";
 
+var omar = "hello";
 
 const Niq = [
     "I focus on the bigger picture rather than details.",
@@ -158,7 +159,7 @@ for(var i = 0; i < 8; i++){
         answer.appendChild(notrelate);
         qnadiv.appendChild(answer);
         answer.classList.add("answer");
-        
+
     }
 }
 
@@ -192,12 +193,12 @@ function updateScores(){
                     var tempScore = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = tempScore;
-                    
+
                     // Swap corresponding function names
                     var tempName = arrayNa[i];
                     arrayNa[i] = arrayNa[i + 1];
                     arrayNa[i + 1] = tempName;
-                    
+
                     unsorted = true;
                 }
             }
@@ -535,7 +536,7 @@ function updateScores(){
         }
     }
 
-    
+
 
     var resultsDiv = document.querySelector(".results");
     resultsDiv.innerHTML = `
@@ -548,7 +549,7 @@ function updateScores(){
         <div class="top3f">
         <h4>${domF1} Score: ${totalScoresArray[0]/10}%</h4>
         <h4>${domF2} Score: ${totalScoresArray[1]/10}%</h4>
-        
+
         </div>
         <h4 class="thirdF">${domF3} Score: ${totalScoresArray[2]/10}%</h4>
         <h4 class="fourthF">${arrayN[3]} Score: ${totalScoresArray[3]/10}%</h4>
@@ -592,12 +593,12 @@ function sort(array, arrayNa) {
                 var tempScore = array[i];
                 array[i] = array[i + 1];
                 array[i + 1] = tempScore;
-                
+
                 // Swap corresponding function names
                 var tempName = arrayNa[i];
                 arrayNa[i] = arrayNa[i + 1];
                 arrayNa[i + 1] = tempName;
-                
+
                 unsorted = true;
             }
         }
